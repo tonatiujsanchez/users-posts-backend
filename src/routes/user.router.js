@@ -12,7 +12,7 @@ routerUser.route('/me')
     .get(verifyJwt, logged)
 
 routerUser.route('/:id/post')
-    .post(setPosts)
+    .post(verifyJwt, setPosts)
 
 routerUser.route('/:id')
     .get(verifyJwt, getOne)

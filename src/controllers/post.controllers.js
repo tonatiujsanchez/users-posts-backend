@@ -8,6 +8,8 @@ const getAll = catchError(async(req, res) => {
     return res.json(results)
 })
 
+
+
 // 🔐 Private Route
 const create = catchError(async(req, res) => {
 
@@ -23,6 +25,7 @@ const create = catchError(async(req, res) => {
 })
 
 
+
 // 🌎 PUBLIC ROUTE
 const getOne = catchError(async(req, res) => {
     const { id } = req.params
@@ -31,12 +34,14 @@ const getOne = catchError(async(req, res) => {
     return res.json(result)
 })
 
+
+
 // 🔐 Private Route
 const remove = catchError(async(req, res) => {
 
     const { id } = req.params
 
-    // Verify that the post belongs to the user TODO:
+    // Verify that the post belongs to the user
     const userId = req.user.id
 
     const post = await Post.findByPk(id)
@@ -52,12 +57,14 @@ const remove = catchError(async(req, res) => {
     return res.sendStatus(204)
 })
 
+
+
 // 🔐 Private Route
 const update = catchError(async(req, res) => {
-    const { id } = req.params
 
+    const { id } = req.params
     
-    // Verify that the post belongs to the user  TODO:
+    // Verify that the post belongs to the user
     const userId = req.user.id
 
     const post = await Post.findByPk(id)
@@ -75,6 +82,7 @@ const update = catchError(async(req, res) => {
     if(result[0] === 0) return res.sendStatus(404)
     return res.json(result[1][0])
 })
+
 
 module.exports = {
     getAll,
