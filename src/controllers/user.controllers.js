@@ -86,7 +86,6 @@ const login = catchError(async (req, res) => {
 
 // 🔐 Private Route
 const logged = catchError(async (req, res) => {
-
     const user = req.user    
     return res.status(200).json(user)
 })

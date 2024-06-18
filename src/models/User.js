@@ -21,15 +21,13 @@ const User = sequelize.define('user', {
     },
     image: {
         type: DataTypes.TEXT,
-        allowNull: false
     },
     dateOfBirth: {
         type: DataTypes.DATEONLY,
-        allowNull: false
     },
     isVerified: {
         type: DataTypes.BOOLEAN,
-        allowNull: false
+        defaultValue: false,
     },
 })
 
